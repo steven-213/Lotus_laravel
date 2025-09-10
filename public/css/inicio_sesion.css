@@ -1,0 +1,74 @@
+.cajaprincipal {
+    background-color: antiquewhite;
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 10%;
+    padding: 4%;
+    width: 20%;
+    border: 2px solid #ccc;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+#email, #password {
+    max-width: 100%;
+    border-style: solid;
+    border-radius: 40%;
+    padding: 5px;
+    width: 90%;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-bottom: 10%;
+}
+
+.cajaprincipal input[type="button"] {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: pink;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button {
+    width: 5%;
+    padding: 0.75rem;
+    background-color: pink;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#accede {
+    width: 50%;
+    padding: 0.75rem;
+    background-color: pink;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#accede:hover {
+    background-color: aliceblue;
+}
+
+.cajaprincipal a {
+    text-decoration: none;
+    color: black;
+    margin: 10%; 
+    font-size: 12px;
+    margin-bottom: 10%;
+}
+
+.cajaprincipal p {
+    font-size: 1.5em;
+}
