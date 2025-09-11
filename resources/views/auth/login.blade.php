@@ -44,5 +44,8 @@
             </x-primary-button>
         </div>
     </form>
+            <form action="{{ route('register') }}" method="GET">
+            <button type="submit">registar</button>
+        </form>
 @endsection
 
