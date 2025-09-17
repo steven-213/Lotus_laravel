@@ -67,7 +67,7 @@ class CalendarController extends Controller
             'title'      => 'nullable|string',
             'start_date' => 'required|date',
             'end_date'   => 'nullable|date',
-            'allDay'     => 'nullable|boolean',
+            'allDay'     => 'nullable',
         ]);
 
         $event = Booking::findOrFail($id);
@@ -75,8 +75,8 @@ class CalendarController extends Controller
 
         $event->start_date = Carbon::parse($request->start_date)->format('Y-m-d H:i:s');
         $event->end_date   = Carbon::parse($request->end_date ?? $request->start_date)->format('Y-m-d H:i:s');
-        // DESPUÉS
-        $event->all_day = $request->boolean('allDay');
+
+        $event->all_day = filter_var($request->allDay, FILTER_VALIDATE_BOOLEAN);
         $event->save();
 
         return response()->json([

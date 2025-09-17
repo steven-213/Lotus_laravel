@@ -183,13 +183,12 @@
                             input: 'text',
                             inputLabel: 'Nombre del evento',
                             inputPlaceholder: 'Escribe el título aquí...',
-                           /* title: 'Selecciona un color para el evento',
-                            input: 'color', // esto abre un selector de colores
-                            inputLabel: 'Color del evento',
-                            inputValue: '#3788d8',
-
+                            /* title: 'Selecciona un color para el evento',
+                             input: 'color', // esto abre un selector de colores
+                             inputLabel: 'Color del evento',
+                             inputValue: '#3788d8',*/
                             showCancelButton: true,
-                            cancelButtonText: 'Cancelar'*/
+                            cancelButtonText: 'Cancelar'
                         });
 
                         if (!title) return;
@@ -260,12 +259,12 @@
                             showDenyButton: true,
                             showCancelButton: true,
                             confirmButtonText: 'Eliminar',
-                            denyButtonText: `No hacer nada`,
+                            denyButtonText: `Editar`,
                             cancelButtonText: 'Cancelar'
                         });
 
                         if (result.isConfirmed) {
-                            const url = updateBaseUrl + '/' + info.event.id;
+                            const url = "{{ route('calendar.destroy', '') }}/" + info.event.id;
                             try {
                                 await fetchJson(url, 'DELETE', {});
                                 info.event.remove();
@@ -273,11 +272,40 @@
                             } catch (error) {
                                 Swal.fire('Error', 'No se pudo eliminar el evento.', 'error');
                             }
+                        } else if (result.isDenied) {
+                            const {
+                                value: newTitle
+                            } = await Swal.fire({
+                                title: 'Editar Evento',
+                                input: 'text',
+                                inputLabel: 'Nuevo título',
+                                inputValue: info.event.title,
+                                showCancelButton: true,
+                                cancelButtonText: 'Cancelar'
+                            });
+
+                            if (newTitle && newTitle !== info.event.title) {
+                                const payload = {
+                                    title: newTitle,
+                                    start_date: formatForMySQL(info.event.start),
+                                    end_date: formatForMySQL(info.event.end ?? info.event.start),
+                                    allDay: info.event.allDay
+                                };
+                                const url = "{{ route('calendar.update', '') }}/" + info.event.id;
+
+
+
+                                try {
+                                    await fetchJson(url, 'PATCH', payload);
+                                    info.event.setProp('title', newTitle);
+                                    Swal.fire('¡Listo!', 'Evento actualizado', 'success');
+                                } catch (error) {
+                                    Swal.fire('Error', 'No se pudo actualizar el evento.', 'error');
+                                }
+                            }
                         }
                     }
-
                 });
-
                 calendar.render();
             });
         </script>
