@@ -1,27 +1,24 @@
-@extends('layouts.app')
+@extends('layouts.app_lotus')
 
-@section('contenido')
-Lista de productos en la base de datos:
-<table class="table">
-<thead>
-    <tr>
-        <th>ID</th>
-        <th>Nombre</th>
-        <th>Precio</th>
-        <th>Descripción</th>
-    </tr>
-</thead>
-<tbody>
-@foreach ($productos as $producto)
-    <tr>
-        <td>{{$producto->id}}</td>
-        <td>{{$producto->nombre}}</td>
-        <td>{{$producto->precio}}</td>
-        <td>{{$producto->descripcion}}</td>
-    </tr>
-@endforeach
-</tbody>
-</table>
+@section('content')
+<link rel="stylesheet" href="{{ asset('css/productos.css') }}">
+
+<div class="productos-container">
+    <h2 class="titulo-seccion">✨ Nuestros Productos ✨</h2>
+
+    <div class="grid-productos">
+        @foreach ($productos as $producto)
+            <div class="producto-card">
+                <img src="{{ asset('storage/' . $producto->imagen) }}" alt="Imagen del producto">
+                <div class="producto-info">
+                    <h5 class="producto-nombre">{{ $producto->nombre }}</h5>
+                    <p class="producto-precio">${{ number_format($producto->precio, 0, ',', '.') }}</p>
+                    <p class="producto-desc">{{ $producto->descripcion }}</p>
+                    <button class="btn-agregar">Agregar al carrito</button>
+                </div>
+            </div>
+        @endforeach
+    </div>
+</div>
 
 @endsection
-

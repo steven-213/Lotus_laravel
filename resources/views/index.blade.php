@@ -1,5 +1,5 @@
 @extends('layouts.app_lotus')
-@section('contenido')
+@section('content')
 
 <link rel="stylesheet" href="{{asset('css/index.css')}}" />
 <div class="cajaprincipal">

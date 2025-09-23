@@ -5,8 +5,11 @@ body {
 
 /* Hero Section */
 .hero {
-    background: url("hero-background.jpg") center/cover no-repeat;
-    color: #fff;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+
+
+
+    color: #333;
     text-align: center;
     padding: 60px 20px;
 }

@@ -1,0 +1,167 @@
+/* =============================
+   🎨 Estilos personalizados FullCalendar
+   Paleta: Rosados y Morados
+   ============================= */
+
+/* --- Estilos generales del body --- */
+body {
+    background: #fffafc; /* blanco con leve tono rosado */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* --- Título principal --- */
+h3 {
+    background: pink;
+    color: #4a0048;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(255, 182, 193, 0.4);
+    font-weight: bold;
+}
+
+/* --- Contenedor del calendario --- */
+#calendar {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(255, 182, 193, 0.25);
+}
+
+/* =============================
+   📌 Botones de la Toolbar
+   ============================= */
+
+/* Botones generales (Mes, Semana, Día, Lista) */
+.fc .fc-button {
+    background: #ffc0cb; /* rosado pink */
+    border: none !important;
+    color: #4a0048 !important;
+    font-weight: bold;
+    border-radius: 8px !important;
+    padding: 6px 14px;
+    transition: all 0.3s ease-in-out;
+    box-shadow: none !important; /* quitamos sombra negra */
+}
+
+/* Hover */
+.fc .fc-button:hover {
+    background: #ffb6c1; /* rosado más claro */
+    color: #4a0048;
+    transform: scale(1.05);
+    box-shadow: 0 2px 6px rgba(255, 182, 193, 0.4) !important; /* sombra rosada suave */
+}
+
+/* Activo (cuando seleccionas Mes, Semana o Día) */
+.fc .fc-button-primary:not(:disabled).fc-button-active {
+    background: #ff91a4 !important; /* rosado más fuerte */
+    color: white !important;
+    box-shadow: inset 0 0 0 2px #e75480 !important; /* borde interno rosado */
+}
+
+/* Botón de Hoy */
+.fc .fc-today-button {
+    background: #ffb6c1 !important;
+    color: #4a0048 !important;
+    border: none !important;
+    border-radius: 8px !important;
+    font-weight: bold;
+    box-shadow: none !important;
+}
+
+.fc .fc-today-button:hover {
+    background: #ff91a4 !important;
+    color: white !important;
+    transform: scale(1.05);
+}
+
+/* =============================
+   📌 Eventos
+   ============================= */
+
+/* Eventos en general */
+.fc-event {
+    background: #ffb6c1 !important; /* rosado claro */
+    border: none !important;
+    color: #2e003e !important; /* texto oscuro para contraste */
+    border-radius: 8px;
+    padding: 4px 6px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.2s ease-in-out;
+}
+
+/* Hover en eventos */
+.fc-event:hover {
+    background: #ff91a4 !important; /* rosado más fuerte */
+    color: #fff !important; /* texto blanco para contrastar */
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+/* Eventos en vistas de lista (listDay, listWeek, listMonth) */
+.fc-list-event-title,
+.fc-list-event-time,
+.fc-list-event-dot {
+    color: #2e003e !important;
+    font-weight: 600;
+}
+
+/* Encabezado de fecha en vistas de lista */
+.fc-list-day-text,
+.fc-list-day-side {
+    color: #4a0048 !important;
+    font-weight: bold;
+}
+
+/* Hover en eventos dentro de la vista de lista */
+.fc .fc-list-event:hover td {
+    background: #ffe4ec !important; /* rosado muy suave */
+    color: #2e003e !important;
+}
+
+/* Eventos de todo el día (parte superior) */
+.fc-daygrid-event,
+.fc-timegrid-event {
+    color: #2e003e !important;   /* texto oscuro */
+    font-weight: 600;
+}
+
+/* Título del evento */
+.fc-event-title {
+    color: #2e003e !important;
+}
+
+/* Hora del evento */
+.fc-event-time {
+    color: #4a0048 !important;
+}
+
+
+/* =============================
+   📌 Encabezados y días
+   ============================= */
+
+/* Nombres de los días */
+.fc-col-header-cell a {
+    color: #5c1a38 !important; /* morado oscuro */
+    text-decoration: none !important;
+    font-weight: bold;
+}
+
+/* Números de los días */
+.fc-daygrid-day-number {
+    color: #5c1a38 !important;
+    text-decoration: none !important;
+    font-weight: 600;
+}
+
+/* Día de hoy resaltado */
+.fc-day-today {
+    background: #ffe4ec !important; /* fondo rosado muy claro */
+}
+
+/* Bordes de celdas */
+.fc-daygrid-day, 
+.fc-timegrid-slot {
+    border-color: #ffeef3 !important;
+}

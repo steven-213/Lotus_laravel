@@ -7,19 +7,20 @@
 </head>
 <body>
     <div>
-        <form action="{{route('students.store')}}" method="POST">
+        <form action="{{route('students.update',$student->id)}}" method="POST">
+            @method('PATCH')
             @csrf
             <div>
                 <label for="name">Nombre:</label>
-                <input type="text" name="name" id="name" required>
+                <input type="text" name="name" id="name" value="{{$student->name}}" required>
             </div>
             <div>
-                <label for="name">Apellido</label>
-                <input type="text" name="last_name" id="name" required>
+                <label for="last_name">Apellido</label>
+                <input type="text" name="last_name" id="last_name" value="{{$student->last_name}}" required>
             </div>
             <div>
                 <label for="age">Edad:</label>
-                <input type="number" name="age" id="age" required>
+                <input type="number" name="age" id="age" value="{{$student->age}}"required>
             </div>
             <button type="submit">Guardar</button>
         </form>
