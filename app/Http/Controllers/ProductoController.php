@@ -15,14 +15,14 @@ class ProductoController extends Controller
      */
     public function index()
     {
-      $productos= Producto::all();
+      $productos= Producto::all();//ese metodo all() trae todos los registros de la tabla productos para los usuarios
       // FUNCION COMPACT SIRVE PARA CREAR UN ARRAY ASOCIATIVO . CLAVES => LOS NOMBRES DE LOS VALORES O PUES LOS NOMBRES TITULO DE LAS TABLAS Y LOS VALORES => LAS VARIABLES QUE CONTIENEN LOS DATOS
       return view('Productos.index', compact('productos'));
     }
 
     public function index_dashboard()
     {
-      $productos= Producto::all();
+      $productos= Producto::all();//este para los administradores
       // FUNCION COMPACT SIRVE PARA CREAR UN ARRAY ASOCIATIVO . CLAVES => LOS NOMBRES DE LOS VALORES O PUES LOS NOMBRES TITULO DE LAS TABLAS Y LOS VALORES => LAS VARIABLES QUE CONTIENEN LOS DATOS
       return view('dashboard.productos.index', compact('productos'));
     }

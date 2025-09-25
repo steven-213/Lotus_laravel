@@ -12,6 +12,10 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    public const ROLE_ADMIN = 'admin';
+    public const ROLE_EMPLEADO = 'empleado';
+    public const ROLE_USUARIO = 'usuario';
+
     /**
      * The attributes that are mass assignable.
      *
@@ -21,7 +25,11 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role',
     ];
+    public function isAdmin(): bool { return $this->role === self::ROLE_ADMIN; }
+    public function isEmpleado(): bool { return $this->role === self::ROLE_EMPLEADO; }
+    public function isUsuario(): bool { return $this->role === self::ROLE_USUARIO; }
 
     /**
      * The attributes that should be hidden for serialization.

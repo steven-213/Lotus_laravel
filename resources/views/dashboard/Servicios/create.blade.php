@@ -11,7 +11,7 @@
 </head>
 <body>
     <div>
-        <form action="{{route('students.store')}}" method="POST">
+        <form action="{{route('product.store')}}" method="POST">
             @csrf
             <div>
                 <label for="name">Nombre:</label>
