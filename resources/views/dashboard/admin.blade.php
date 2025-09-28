@@ -30,13 +30,17 @@
             📦 <span>Productos</span>
         </button>
 
-        <button class="admin-card" onclick="mostrarContenido('servicios')">
+        <button class="admin-card" onclick="window.location.href='{{route('servicio_dashboard.index')}}'">
             🛠️ <span>Servicios</span>
         </button>
 
         <button class="admin-card" onclick="window.location.href='{{route('calendar.index')}}'">
             📅 <span>Calendario</span>
         </button>
+        <button class="admin-card" onclick="window.location.href='{{route('usuario.index')}}'">
+            👥 <span>Usuarios</span>
+        </button>
+        
     </div>
 
     <!-- CONTENIDO DINÁMICO -->

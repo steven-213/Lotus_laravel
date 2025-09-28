@@ -3,6 +3,8 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CalendarController;
 use App\Http\Controllers\ProductoController;
+use App\Http\Controllers\UsuarioController;
+use App\Http\Controllers\ServicioController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -72,10 +74,41 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::delete('productos/destroy/{id}', [ProductoController::class, 'destroy'])->name('producto.destroy');
 });
 
+
+// RUTAS SERVICIOS (para usuarios)
+Route::get('/servicios', [ServicioController::class, 'index'])->name('servicio.index');
+
+// RUTAS DE ADMINISTRACIÓN SERVICIOS
+Route::middleware(['auth', 'role:admin'])->group(function () {
+    Route::get('servicios/index', [ServicioController::class, 'index_dashboard'])->name('servicio_dashboard.index');
+    Route::get('servicios/create', [ServicioController::class, 'create'])->name('servicio.create');
+    Route::post('servicios', [ServicioController::class, 'store'])->name('servicio.store');
+    Route::get('servicios/edit/{id}', [ServicioController::class, 'edit'])->name('servicio.edit');
+    Route::patch('servicios/update/{id}', [ServicioController::class, 'update'])->name('servicio.update');
+    Route::delete('servicios/destroy/{id}', [ServicioController::class, 'destroy'])->name('servicio.destroy');
+});
+
+
+
+
 // RUTA ADMIN
 
 Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/admin', function () {
         return view('dashboard.admin');
     })->name('dashboard.admin');
+
+});
+
+
+
+// RUTAS DE ADMINISTRACIÓN USUARIOS
+
+Route::middleware(['auth', 'role:admin'])->group(function () {
+    Route::get('usuarios/index', [UsuarioController::class, 'index_dashboard'])->name('usuario.index');
+    Route::get('usuarios/create', [UsuarioController::class, 'create'])->name('usuario.create');
+    Route::post('usuarios', [UsuarioController::class, 'store'])->name('usuario.store');
+    Route::get('usuarios/edit/{id}', [UsuarioController::class, 'edit'])->name('usuario.edit');
+    Route::patch('usuarios/update/{id}', [UsuarioController::class, 'update'])->name('usuario.update');
+    Route::delete('usuarios/destroy/{id}', [UsuarioController::class, 'destroy'])->name('usuario.destroy');
 });

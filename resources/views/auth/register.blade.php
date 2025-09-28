@@ -1,4 +1,6 @@
-<link rel="stylesheet" href="{{ asset('css/registro.css') }}">
+@extends('layouts.app_lotus')
+@section('content')
+<link rel="stylesheet" href="{{ asset('css/register.css') }}">
 <form method="POST" action="{{ route('register') }}" id="registroForm" onsubmit="return boton()">
     @csrf
 
@@ -37,3 +39,4 @@
         <button id="crea" type="submit">Crea tu Cuenta</button>
     </div>
 </form>
+@endsection

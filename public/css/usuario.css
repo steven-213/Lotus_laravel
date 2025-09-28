@@ -1,0 +1,48 @@
+body {
+            background-color: #fff0f5; /* Rosado muy claro */
+        }
+
+        /* Encabezado */
+        h2 {
+            color: #d63384; /* Rosado fuerte */
+            font-weight: bold;
+        }
+
+        /* Tabla */
+        .table thead {
+            background-color: #f8d7e9; /* Rosado pastel */
+            color: #6a0d45;
+        }
+
+        .table tbody tr:hover {
+            background-color: #fde2f3; /* Rosado suave */
+        }
+
+        /* Botones */
+        .btn-primary {
+            background-color: #d63384;
+            border-color: #d63384;
+        }
+        .btn-primary:hover {
+            background-color: #b52c6d;
+            border-color: #b52c6d;
+        }
+
+        .btn-warning {
+            background-color: #f78fb3; 
+            border-color: #f78fb3;
+            color: #fff;
+        }
+        .btn-warning:hover {
+            background-color: #e6679f;
+            border-color: #e6679f;
+        }
+
+        .btn-danger {
+            background-color: #ff4d6d;
+            border-color: #ff4d6d;
+        }
+        .btn-danger:hover {
+            background-color: #cc3a55;
+            border-color: #cc3a55;
+        }

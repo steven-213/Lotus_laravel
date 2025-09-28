@@ -1,29 +1,78 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>create</title>
+    <title>Editar servicio</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+     <link rel="stylesheet" href="{{ asset('css/boton.css') }}">
+     <link rel="stylesheet" href="{{ asset('css/boton.css') }}">
 </head>
-<body>
-    <div>
-        <form action="{{route('students.update',$student->id)}}" method="POST">
-            @method('PATCH')
-            @csrf
-            <div>
-                <label for="name">Nombre:</label>
-                <input type="text" name="name" id="name" value="{{$student->name}}" required>
-            </div>
-            <div>
-                <label for="last_name">Apellido</label>
-                <input type="text" name="last_name" id="last_name" value="{{$student->last_name}}" required>
-            </div>
-            <div>
-                <label for="age">Edad:</label>
-                <input type="number" name="age" id="age" value="{{$student->age}}"required>
-            </div>
-            <button type="submit">Guardar</button>
-        </form>
-    </div>
+<body class="container mt-5">
+
+    <h1>Editar servicio</h1>
+
+    {{-- Mostrar errores de validación --}}
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul class="mb-0">
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
+    <form action="{{ route('servicio.update', $servicio->id) }}" method="POST" enctype="multipart/form-data" class="mt-3">
+        @method('PATCH')
+        @csrf
+
+        <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre del servicio:</label>
+            <input type="text" 
+                name="nombre" 
+                id="nombre" 
+                value="{{ old('nombre', $servicio->nombre) }}" 
+                class="form-control" 
+                required>
+            @error('nombre')
+                <small class="text-danger">{{ $message }}</small>
+            @enderror
+        </div>
+
+        <div class="mb-3">
+            <label for="precio" class="form-label">Precio:</label>
+            <input type="number" 
+                name="precio" 
+                id="precio" 
+                value="{{ old('precio', (int) $servicio->precio) }}" 
+                class="form-control" 
+                required>
+            @error('precio')
+                <small class="text-danger">{{ $message }}</small>
+            @enderror
+        </div>
+
+        <div class="mb-3">
+            <label for="descripcion" class="form-label">Descripción:</label>
+            <textarea name="descripcion" 
+                    id="descripcion" 
+                    class="form-control" 
+                    required>{{ old('descripcion', $servicio->descripcion) }}</textarea>
+            @error('descripcion')
+                <small class="text-danger">{{ $message }}</small>
+            @enderror
+        </div>
+
+        <div class="mb-3">
+            <label for="imagen" class="form-label">Imagen del servicio</label>
+            <input type="file" name="imagen" class="form-control">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Guardar</button>
+        <a href="{{ route('servicio_dashboard.index') }}" class="btn btn-secondary">Cancelar</a>
+    </form>
+
 </body>
 </html>

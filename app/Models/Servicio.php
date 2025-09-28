@@ -5,9 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Booking extends Model
+class Servicio extends Model
 {
     use HasFactory;
-
-    protected $fillable = ['title', 'start_date', 'end_date'];
+    protected $fillable = ['nombre', 'precio' ,'descripcion', 'imagen'];
 }

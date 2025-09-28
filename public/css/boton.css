@@ -1,0 +1,17 @@
+/* Botones rosaditos estilo "rosaito" */
+.btn-primary {
+    --bs-btn-color: #fff;
+    --bs-btn-bg: #ff6b81; /* rosa principal */
+    --bs-btn-border-color: #ff6b81;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #ff5c70; /* rosa un poco más oscuro al pasar el mouse */
+    --bs-btn-hover-border-color: #ff5c70;
+    --bs-btn-focus-shadow-rgb: 255, 107, 129;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: #ff4e5c; /* rosa más oscuro al presionar */
+    --bs-btn-active-border-color: #ff4e5c;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #fff;
+    --bs-btn-disabled-bg: #ff6b81;
+    --bs-btn-disabled-border-color: #ff6b81;
+}

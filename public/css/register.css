@@ -1,0 +1,76 @@
+/* ----------------------- REGISTRO ---------------------- */
+.cajaprincipal {
+    max-width: 450px;
+    margin: 50px auto;
+    padding: 30px;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Título */
+.cajaprincipal p {
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+    background: pink;
+    color: #4a0048;
+    padding: 12px 20px;
+    border-radius: 12px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Labels */
+.cajaprincipal span {
+    display: block;
+    text-align: left;
+    font-size: 0.95rem;
+    color: #444;
+    margin-bottom: 6px;
+    margin-top: 10px;
+}
+
+/* Inputs */
+.cajaprincipal input[type="text"],
+.cajaprincipal input[type="email"],
+.cajaprincipal input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    font-size: 1rem;
+}
+
+.cajaprincipal input:focus {
+    border-color: pink;
+    outline: none;
+    box-shadow: 0 0 6px rgba(255, 182, 193, 0.6);
+}
+
+/* Errores */
+.text-red-500 {
+    color: #e60073;
+    font-size: 0.85rem;
+    margin-top: -6px;
+    margin-bottom: 8px;
+}
+
+/* Botón */
+#crea {
+    background: pink;
+    color: #4a0048;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-top: 15px;
+    width: 100%;
+    font-size: 1rem;
+}
+
+#crea:hover {
+    background: #ffc0cb;
+}

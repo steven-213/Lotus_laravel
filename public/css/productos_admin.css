@@ -1,0 +1,61 @@
+
+        /* Fondo general */
+        body {
+            background-color: #fff0f5; /* Rosado claro */
+        }
+        h2 {
+            font-weight: bold;
+        }
+
+
+        /* Encabezado tabla */
+        .table thead {
+            background-color: #f8d7e9; /* Rosado pastel */
+            color: #6a0d45; /* Texto oscuro elegante */
+        }
+
+        /* Hover en filas */
+        .table tbody tr:hover {
+            background-color: #fde2f3; /* Rosado suave */
+        }
+
+        /* Botón crear */
+        .btn-primary {
+            background-color: #d63384;
+            border-color: #d63384;
+        }
+        .btn-primary:hover {
+            background-color: #b52c6d;
+            border-color: #b52c6d;
+        }
+
+        /* Enlaces Editar */
+        a {
+            color: #d63384;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        a:hover {
+            color: #b52c6d;
+            text-decoration: underline;
+        }
+
+        /* Botón eliminar */
+        button {
+            background-color: #ff4d6d;
+            border: none;
+            padding: 5px 12px;
+            border-radius: 6px;
+            color: #fff;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #cc3a55;
+        }
+
+        /* Tabla con bordes suaves y sombra */
+        .table {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(214, 51, 132, 0.2);
+        }

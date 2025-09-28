@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Booking;
+use App\Models\Calendario;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 
@@ -11,19 +11,19 @@ class CalendarController extends Controller
     public function index()
     {
         $events = [];
-        $bookings = Booking::all();
+        $calendarios = Calendario::all();
 
-        foreach ($bookings as $booking) {
+        foreach ($calendarios as $calendario) {
             $color = null;
-            if ($booking->title == 'Test') $color = '#924ACE';
-            if ($booking->title == 'Test 1') $color = '#68B01A';
+            if ($calendario->title == 'Test') $color = '#924ACE';
+            if ($calendario->title == 'Test 1') $color = '#68B01A';
 
             $events[] = [
-                'id'      => $booking->id,
-                'title'   => $booking->title,
-                'start'   => $booking->start_date,
-                'end'     => $booking->end_date,
-                'allDay'  => (bool) $booking->all_day,
+                'id'      => $calendario->id,
+                'title'   => $calendario->title,
+                'start'   => $calendario->start_date,
+                'end'     => $calendario->end_date,
+                'allDay'  => (bool) $calendario->all_day,
                 'color'   => $color ?: '#3788d8'
             ];
         }
@@ -40,23 +40,23 @@ class CalendarController extends Controller
             'allDay'     => 'nullable|boolean',
         ]);
 
-        $booking = Booking::create([
-            'title'     => $request->title,
+        $calendario = Calendario::create([
+            'title'      => $request->title,
             'start_date' => Carbon::parse($request->start_date)->format('Y-m-d H:i:s'),
-            'end_date'  => Carbon::parse($request->end_date)->format('Y-m-d H:i:s'),
-            'all_day'   => $request->boolean('allDay'),
+            'end_date'   => Carbon::parse($request->end_date)->format('Y-m-d H:i:s'),
+            'all_day'    => $request->boolean('allDay'),
         ]);
 
         $color = null;
-        if ($booking->title == 'Test') $color = '#924ACE';
-        if ($booking->title == 'Test 1') $color = '#68B01A';
+        if ($calendario->title == 'Test') $color = '#924ACE';
+        if ($calendario->title == 'Test 1') $color = '#68B01A';
 
         return response()->json([
-            'id'     => $booking->id,
-            'title'  => $booking->title,
-            'start'  => $booking->start_date,
-            'end'    => $booking->end_date,
-            'allDay' => (bool) $booking->all_day,
+            'id'     => $calendario->id,
+            'title'  => $calendario->title,
+            'start'  => $calendario->start_date,
+            'end'    => $calendario->end_date,
+            'allDay' => (bool) $calendario->all_day,
             'color'  => $color ?: '#3788d8',
         ]);
     }
@@ -70,13 +70,15 @@ class CalendarController extends Controller
             'allDay'     => 'nullable',
         ]);
 
-        $event = Booking::findOrFail($id);
-        if ($request->title) $event->title = $request->title;
+        $event = Calendario::findOrFail($id);
+
+        if ($request->title) {
+            $event->title = $request->title;
+        }
 
         $event->start_date = Carbon::parse($request->start_date)->format('Y-m-d H:i:s');
         $event->end_date   = Carbon::parse($request->end_date ?? $request->start_date)->format('Y-m-d H:i:s');
-
-        $event->all_day = filter_var($request->allDay, FILTER_VALIDATE_BOOLEAN);
+        $event->all_day    = filter_var($request->allDay, FILTER_VALIDATE_BOOLEAN);
         $event->save();
 
         return response()->json([
@@ -90,12 +92,12 @@ class CalendarController extends Controller
 
     public function destroy($id)
     {
-        $booking = Booking::find($id);
-        if (!$booking) {
+        $calendario = Calendario::find($id);
+        if (!$calendario) {
             return response()->json(['error' => 'Unable to locate the event'], 404);
         }
 
-        $booking->delete();
+        $calendario->delete();
         return response()->json(['success' => true, 'id' => $id]);
     }
 }

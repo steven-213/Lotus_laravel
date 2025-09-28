@@ -2,7 +2,9 @@
 @section('content')       
         <!-- Bootstrap CSS -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<link rel="stylesheet" href="{{ asset('css/productos_admin.css') }}">
 
+        <h2>Listado de Productos</h2>
         
         <table class="table">
             <thead>
@@ -11,6 +13,7 @@
                     <th>Nombre</th>
                     <th>Precio</th>
                     <th>Descripcion</th>
+                    <th>Imagen</th>
                     <th>Acciones</th>   
                 </tr>
             </thead>
@@ -21,6 +24,13 @@
         <td>{{ $producto->nombre }}</td>
         <td>{{ (int) $producto->precio }}</td>
         <td>{{ $producto->descripcion }}</td>
+        <td>
+                    @if ($producto->imagen)
+                        <img src="{{ asset('storage/'.$producto->imagen) }}" alt="Imagen" width="80">
+                    @else
+                        <span class="text-muted">Sin imagen</span>
+                    @endif
+                </td>
         <td>
             <a href="{{ route('producto.edit', $producto->id) }}">Editar</a>
             

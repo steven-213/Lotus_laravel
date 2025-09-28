@@ -19,7 +19,7 @@
             <!--ORIGINAL-->
             <ul class="items_ul">
                 <li class="nav-item"><a class="nav-link" href="{{ route('nosotros.index') }}">Conócenos</a></li>
-                <li class="nav-item"><a class="nav-link" href="{{ url('/servicios') }}">Servicios</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('servicio.index') }}">Servicios</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('producto.index') }}">Productos</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Inicia Sesión</a></li>
             </ul>

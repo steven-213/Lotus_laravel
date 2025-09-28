@@ -5,9 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Book extends Model
+class Calendario extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'author_name', 'note', 'is_publish'];
+    protected $fillable = ['title', 'start_date', 'end_date'];
 }
