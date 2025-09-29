@@ -14,13 +14,19 @@ class ProfileController extends Controller
     /**
      * Display the user's profile form.
      */
-    public function edit(Request $request): View
-    {
-        return view('profile.edit', [
-            'user' => $request->user(),
-        ]);
+  public function edit(Request $request): View|RedirectResponse
+{
+    $user = $request->user();
+
+    if ($user->role === 'admin') {
+        // redirige al dashboard admin
+        return Redirect::route('dashboard_admin_');
     }
 
+    // usuario normal → carga su vista de perfil
+    return view('profile.index', [
+        'user' => $user,
+    ]);}
     /**
      * Update the user's profile information.
      */

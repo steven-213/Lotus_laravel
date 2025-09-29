@@ -30,11 +30,12 @@ Route::get('/conocenos', function () {
 
 // RUTAS AUTENTICACIÓN 
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', [ProfileController::class, 'edit'])
+    ->middleware(['auth', 'verified'])
+    ->name('dashboard');
 
-Route::get('/dashboard', function () {
+
+Route::get('/dashboard/admin', function () {
     return view('dashboard.admin');
 })->middleware(['auth', 'verified','role:admin'])->name('dashboard_admin_');
 

@@ -28,7 +28,7 @@
 
 .intro-texto {
   flex: 1;
-  font-size: 1.1rem;
+  font-size: 1rem;
   line-height: 1.8;
   color: #444;
 }
@@ -38,7 +38,7 @@
 }
 
 .intro-imagen img {
-  width: 100%;
+  width: 80%;
   border-radius: 15px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
